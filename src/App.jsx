@@ -59,6 +59,7 @@ function App() {
         <Route path="/listing/:id" element={<ListingDetail />} />
         <Route path={`/${userName}/Booking`} element={userLogged ? <TotalBookings /> : <Login />} />
         <Route path="*" element={<Navigate to="/goVibe" />} />
+
       </Routes>
       <Footer />
     </>

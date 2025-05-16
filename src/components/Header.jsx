@@ -21,6 +21,7 @@ const Header = () => {
     dispatch(authActions.logout());
     setIsDropdownOpen(false)
     navigate('/signin');
+    window.location.reload();
   };
 
   return (

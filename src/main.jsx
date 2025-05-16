@@ -11,7 +11,7 @@ import store from './Store/store.jsx';
 createRoot(document.getElementById('root')).render(
   
     <Provider store={store}>
-     <BrowserRouter basename={basename}>
+     <BrowserRouter >
         <App/>
      </BrowserRouter>
     </Provider>

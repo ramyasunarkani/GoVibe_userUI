@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
+// ✔ Set base to root for Vercel
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/goVibe/' : '/',
+  base: '/',
   plugins: [react()],
-})
+});

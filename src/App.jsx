@@ -51,7 +51,8 @@ function App() {
       <ToastContainer position="top-right" autoClose={2000} />
       <Header />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navigate to='/goVibe' />} />
+        <Route path='/goVibe' element={<Home />} />
         <Route path="/signin" element={userLogged ? <Navigate to="/" /> : <Login />} />
         <Route path="/signup" element={userLogged ? <Navigate to="/" /> : <SignUp />} />
         <Route path='/goVibe/wishlist' element={userLogged ? <Wishlist /> : <Login />} />

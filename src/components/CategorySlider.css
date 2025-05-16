@@ -6,13 +6,13 @@
 }
 
 .slider-container h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
     color: #333;
 }
 
 .category-card {
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
     border: none;
@@ -49,15 +49,16 @@
 .slick-prev,
 .slick-next {
     z-index: 1;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 .slick-prev::before,
 .slick-next::before {
-    font-size: 30px;
+    font-size: 24px;
     color: #888484;
 }
+
 .slider-wrapper {
     position: relative;
     border: none;
@@ -70,4 +71,75 @@
 
 .slider-wrapper:hover .slick-arrow {
     opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .slider-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .category-card img {
+        height: 160px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 28px;
+        height: 28px;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-container h1 {
+        font-size: 1.3rem;
+    }
+
+    .category-card img {
+        height: 140px;
+    }
+
+    .category-card p {
+        font-size: 0.9rem;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 25px;
+        height: 25px;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .category-card img {
+        height: 120px;
+    }
+
+    .category-card p {
+        font-size: 0.85rem;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 20px;
+        height: 20px;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        font-size: 18px;
+    }
 }

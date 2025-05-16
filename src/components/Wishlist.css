@@ -15,16 +15,18 @@
     justify-content: space-around;
     align-items: center;
     width: 80%;
+    max-width: 900px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     position: relative;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 .wishlist-item-image img {
-    width: 100%;
+    width: 250px;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
@@ -32,8 +34,11 @@
 }
 
 .wishlist-item-details {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 2rem;
+    flex: 1;
 }
 
 .remove-item-btn {
@@ -44,10 +49,15 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.remove-item-btn:hover {
+    color: red;
 }
 
 .view-more-btn {
-    align-self: flex-end;
+    align-self: flex-start;
     margin-top: 15px;
     padding: 8px 12px;
     background-color: #28d97e;
@@ -55,12 +65,62 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .view-more-btn:hover {
     background-color: #137040;
 }
 
-.remove-item-btn:hover {
-    color: red;
+
+@media (max-width: 768px) {
+    .wishlist-item {
+        flex-direction: column;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .wishlist-item-image img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        margin: 0 0 1rem 0;
+        border-radius: 8px;
+    }
+
+    .wishlist-item-details {
+        margin: 0 0 1rem 0;
+        text-align: center;
+    }
+
+    .view-more-btn {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .wishlist-item {
+        padding: 8px;
+        width: 100%;
+    }
+
+    .wishlist-item-image img {
+        max-height: 200px;
+    }
+
+    .wishlist-item-details {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .remove-item-btn {
+        font-size: 18px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .view-more-btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
 }

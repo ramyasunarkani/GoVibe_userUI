@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from '../assets/stayfinder.png';
 import './Header.css';
 import { CiUser } from 'react-icons/ci';
-import { PiShoppingCartSimpleThin } from 'react-icons/pi';
 import { GoHeart } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,13 +32,14 @@ const Header = () => {
 
       {userLogged ? (
         <div className="sub-section">
+        <span onClick={() =>{ navigate(`/${userName}/Booking`); setIsDropdownOpen(false); }}>
+           Bookings
+          </span>
            <span onClick={() => { navigate('/goVibe/wishlist'); setIsDropdownOpen(false); }}>
             <GoHeart size={22} />
           </span>
 
-          <span onClick={() =>{ navigate(`/${userName}/Booking`); setIsDropdownOpen(false); }}>
-            <PiShoppingCartSimpleThin size={25} />
-          </span>
+          
 
           <span
             className="profile-icon"

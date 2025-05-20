@@ -15,6 +15,7 @@ const ListingDetail = () => {
   const listings = useSelector((state) => state.listings.items);
   const auth=useSelector((state)=>state.auth);
   const listing = listings.find((item) => item.id === id);
+  const userLogged=useSelector(state=>state.auth.userLogged);
   const dispatch=useDispatch()
 
   const [startDate, setStartDate] = useState("");
@@ -33,6 +34,9 @@ const ListingDetail = () => {
   };
 
   const handleBookingSubmit = () => {
+    if(!userLogged){
+      alert('user not LoggedIn please login ');
+    }
     if (!startDate || !endDate || !guests || !userAddress) {
       alert("Please fill in all fields.");
       return;

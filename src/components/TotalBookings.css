@@ -41,3 +41,51 @@
     padding: 5px;
     color: white;
 }
+/* Tablet and below (≤ 768px) */
+@media (max-width: 768px) {
+    .booking-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .booking-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .booking-details {
+        padding: 10px;
+    }
+
+    .booking-details h3 {
+        font-size: 18px;
+    }
+
+    .status {
+        display: inline-block;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+    .bookings-container {
+        padding: 15px;
+    }
+
+    .bookings-title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .booking-details h3 {
+        font-size: 16px;
+    }
+
+    .status {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+}

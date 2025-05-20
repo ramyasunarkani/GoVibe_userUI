@@ -16,6 +16,9 @@ import { fetchWishlist, sendWishlist } from './Store/wishlist-actions';
 import Wishlist from './components/Wishlist';
 import TotalBookings from './components/TotalBookings';
 import { fetchBookings } from './Store/booking_actions';
+import About from './pages/About';
+import Policies from './pages/Policies';
+import Help from './pages/Help';
 
 function App() {
   const userLogged = useSelector((state) => state.auth.userLogged);
@@ -59,6 +62,10 @@ function App() {
         <Route path="/listings" element={<CategoryListings />} />
         <Route path="/listing/:id" element={<ListingDetail />} />
         <Route path={`/${userName}/Booking`} element={userLogged ? <TotalBookings /> : <Login />} />
+        <Route path='/about' element={<About/>}/>
+        <Route path='/policies' element={<Policies/>}/>
+        <Route path='/help' element={<Help/>}/>
+
         <Route path="*" element={<Navigate to="/goVibe" />} />
 
       </Routes>

@@ -8,15 +8,25 @@
 .search-header {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 20px 0;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .search-input {
-    width: 60%;
+    width: 100%;
+    max-width: 600px;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.search-header,
+.content-container,
+.listing-rows {
+    margin-bottom: 30px;
 }
 
 .content-container {
@@ -92,11 +102,12 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    margin: 4px 0;    
- }
- .checkbox-label input{
+    margin: 4px 0;
+}
+
+.checkbox-label input {
     width: 30px;
- }
+}
 
 .listing-rows {
     flex: 1;
@@ -167,4 +178,102 @@
 
 .listing-actions button:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        padding: 0 25px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .listing-thumb {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    .listing-row {
+        flex-direction: column;
+    }
+
+    .listing-info {
+        padding: 15px;
+    }
+
+    .search-input {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-header {
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+
+    .search-input {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .listing-row {
+        align-items: center;
+        text-align: center;
+    }
+
+    .listing-info h3 {
+        font-size: 18px;
+    }
+
+    .listing-actions {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .listing-actions button {
+        width: 100%;
+    }
+
+    .sidebar input,
+    .category-btn {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-input {
+        font-size: 14px;
+        padding: 7px;
+    }
+
+    .listing-thumb {
+        height: 180px;
+    }
+
+    .listing-info {
+        padding: 10px;
+    }
+
+    .listing-info h3 {
+        font-size: 16px;
+    }
+
+    .category-btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .listing-actions button {
+        font-size: 13px;
+        padding: 7px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
 }

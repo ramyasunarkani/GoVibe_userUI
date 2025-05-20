@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./TopListing.css";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { wishlistActions } from "../Store/wishlistSlice";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const TopListing = () => {
   const dispatch = useDispatch();
@@ -14,83 +17,60 @@ const TopListing = () => {
   const wishlistItems = useSelector((state) => state.wishlist.items);
   const userLogged = useSelector((state) => state.auth.userLogged);
 
-  const [imageIndexes, setImageIndexes] = useState({});
-
-  useEffect(() => {
-    const initialIndexes = {};
-    popularListings.forEach((listing) => {
-      initialIndexes[listing.id] = 0;
-    });
-    setImageIndexes(initialIndexes);
-  }, [popularListings]);
-
-  const handlePrev = (id, imagesLength) => {
-    setImageIndexes((prev) => ({
-      ...prev,
-      [id]: (prev[id] - 1 + imagesLength) % imagesLength,
-    }));
-  };
-
-  const handleNext = (id, imagesLength) => {
-    setImageIndexes((prev) => ({
-      ...prev,
-      [id]: (prev[id] + 1) % imagesLength,
-    }));
-  };
-
- const handleLikeClick = (listing) => {
-  if (!userLogged) {
-    navigate("/signin");
-  } else {
-    const alreadyLiked = isLiked(listing.id);
-    if (alreadyLiked) {
-      dispatch(wishlistActions.removeItem(listing.id));
+  const handleLikeClick = (listing) => {
+    if (!userLogged) {
+      navigate("/signin");
     } else {
-      dispatch(wishlistActions.addItem(listing));
+      const alreadyLiked = wishlistItems.some((item) => item.id === listing.id);
+      if (alreadyLiked) {
+        dispatch(wishlistActions.removeItem(listing.id));
+      } else {
+        dispatch(wishlistActions.addItem(listing));
+      }
     }
-  }
-};
-
-
-  const isLiked = (listingId) => {
-    return wishlistItems.some((item) => item.id === listingId);
   };
 
   const handleViewMore = (id) => {
     navigate(`/listing/${id}`);
   };
 
+  const cardSliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 600,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
     <div className="popular-listings-container">
       <h2>Popular stays for you</h2>
-      <div className="listings-grid">
+      <Slider {...cardSliderSettings}>
         {popularListings.map((listing) => {
           const images = listing.images || [];
-          const currentIndex = imageIndexes[listing.id] || 0;
-          const liked = isLiked(listing.id);
+          const liked = wishlistItems.some((item) => item.id === listing.id);
 
           return (
             <div key={listing.id} className="listing-card">
               <div className="image-container">
                 {images.length > 0 && (
                   <img
-                    src={images[currentIndex]}
+                    src={images[0]}
                     alt={listing.placeName}
                     className="listing-image"
                   />
                 )}
-                <button
-                  className="nav-arrow left"
-                  onClick={() => handlePrev(listing.id, images.length)}
-                >
-                  ‹
-                </button>
-                <button
-                  className="nav-arrow right"
-                  onClick={() => handleNext(listing.id, images.length)}
-                >
-                  ›
-                </button>
                 <button
                   className={`like-btn ${liked ? "liked" : ""}`}
                   onClick={() => handleLikeClick(listing)}
@@ -108,7 +88,7 @@ const TopListing = () => {
             </div>
           );
         })}
-      </div>
+      </Slider>
     </div>
   );
 };

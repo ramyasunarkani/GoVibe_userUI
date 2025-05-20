@@ -1,0 +1,33 @@
+.policies-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.policies-page h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.policy-section {
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid #007bff;
+    border-radius: 6px;
+}
+
+.policy-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.policy-section p {
+    margin: 0;
+    font-size: 16px;
+}

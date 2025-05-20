@@ -11,11 +11,17 @@
     color: #333;
 }
 
+.slick-slide {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
 .category-card {
     padding: 15px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
     border: none;
+    cursor: pointer;
 }
 
 .category-card:hover {
@@ -51,6 +57,8 @@
     z-index: 1;
     width: 30px;
     height: 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .slick-prev::before,
@@ -62,6 +70,7 @@
 .slider-wrapper {
     position: relative;
     border: none;
+    overflow: visible;
 }
 
 .slider-wrapper .slick-arrow {

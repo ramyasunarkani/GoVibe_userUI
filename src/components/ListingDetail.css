@@ -87,3 +87,54 @@
     font-size: 24px;
     cursor: pointer;
 }
+@media (max-width: 768px) {
+    .carousel-image {
+        height: 250px;
+    }
+
+    .booking-modal {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .book-now-btn {
+        max-width: 100%;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cancel-btn {
+        max-width: 100%;
+        flex: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-image {
+        height: 180px;
+    }
+
+    .listing-detail {
+        margin: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .book-now-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .booking-modal label {
+        font-size: 14px;
+    }
+
+    .booking-modal input,
+    .booking-modal textarea {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
